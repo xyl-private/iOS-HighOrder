@@ -23,9 +23,6 @@
       location = "group:iOS - Category &#x5206;&#x7c7b;/iOS - Category &#x5206;&#x7c7b;.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:iOS - Block&#x56de;&#x8c03;01/iOS - Block&#x56de;&#x8c03;01.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:iOS - Block &#x57fa;&#x7840;/iOS - Block &#x57fa;&#x7840;.xcodeproj">
    </FileRef>
    <FileRef
