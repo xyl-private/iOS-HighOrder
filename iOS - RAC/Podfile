@@ -7,4 +7,5 @@ target 'iOS - RAC' do
 
   # Pods for iOS - RAC
   pod 'ReactiveObjC'
+  pod 'Masonry'
 end

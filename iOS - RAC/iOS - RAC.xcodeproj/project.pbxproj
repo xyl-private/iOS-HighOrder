@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2276A2E822EEC33900168131 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276A2E722EEC33900168131 /* TwoViewController.m */; };
 		281345BD22DC579C00C58FB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 281345BC22DC579C00C58FB4 /* AppDelegate.m */; };
 		281345C022DC579C00C58FB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281345BF22DC579C00C58FB4 /* ViewController.m */; };
 		281345C322DC579C00C58FB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281345C122DC579C00C58FB4 /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2276A2E622EEC33900168131 /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
+		2276A2E722EEC33900168131 /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		281345B822DC579C00C58FB4 /* iOS - RAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS - RAC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		281345BB22DC579C00C58FB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		281345BC22DC579C00C58FB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				281345BC22DC579C00C58FB4 /* AppDelegate.m */,
 				281345BE22DC579C00C58FB4 /* ViewController.h */,
 				281345BF22DC579C00C58FB4 /* ViewController.m */,
+				2276A2E622EEC33900168131 /* TwoViewController.h */,
+				2276A2E722EEC33900168131 /* TwoViewController.m */,
 				281345D222DC5AA000C58FB4 /* ArcView.h */,
 				281345D322DC5AA000C58FB4 /* ArcView.m */,
 				281345C122DC579C00C58FB4 /* Main.storyboard */,
@@ -217,6 +222,7 @@
 				281345C022DC579C00C58FB4 /* ViewController.m in Sources */,
 				281345D422DC5AA000C58FB4 /* ArcView.m in Sources */,
 				281345CB22DC579C00C58FB4 /* main.m in Sources */,
+				2276A2E822EEC33900168131 /* TwoViewController.m in Sources */,
 				281345BD22DC579C00C58FB4 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,7 +40,6 @@
     [self addSubview:btn];
     [[btn rac_signalForControlEvents:(UIControlEventTouchUpInside)] subscribeNext:^(__kindof UIControl * _Nullable x) {
         NSLog(@"rac action");
-        
         self.name = [NSString stringWithFormat:@"%d",arc4random()%2000];
     }];
 }
