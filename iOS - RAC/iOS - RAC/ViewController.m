@@ -11,6 +11,7 @@
 #import <ReactiveObjC.h>
 #import <RACEXTScope.h>
 #import "TwoViewController.h"
+#import "RACBindViewController.h"
 
 typedef void(^Next)(id x);
 @interface ViewController ()<UITextFieldDelegate>
@@ -25,6 +26,9 @@ typedef void(^Next)(id x);
 @implementation ViewController
 - (IBAction)notfactionAction:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"xyanlNotification" object:@"xyanlNotification"];
+        [self rac_filter];
+    RACBindViewController * vc = [[RACBindViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -33,8 +37,6 @@ typedef void(^Next)(id x);
     [super viewDidLoad];
     
     RAC(self.showLa,text) = self.textfiled.rac_textSignal;
-
-    
     
 //    [self rac_dictionary];
     
@@ -49,7 +51,11 @@ typedef void(^Next)(id x);
 //    [self rac_textfiledDelegate];
     
 //    [self normalButton_targetAction];
-    [self rac_buttonAddTargetAction];
+//    [self rac_buttonAddTargetAction];
+    
+//    [self normalKVC];
+//    [self rac_KVO];
+//    [self rac_timer];
 }
 
 
@@ -200,6 +206,36 @@ typedef void(^Next)(id x);
     
 }
 
+
+- (void) normalKVC{
+    [self.textfiled addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
+
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"text"] && object == self.textfiled) {
+        NSLog(@"normalKVC %@",change);
+    }
+}
+
+- (void)rac_KVO
+{
+    [RACObserve(self.textfiled, text) subscribeNext:^(id  _Nullable x) {
+        NSLog(@"RAC_KVO %@",x);
+    }];
+}
+
+- (void) rac_timer{
+    //主线程中每两秒执行一次
+    [[RACSignal interval:2.0 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(NSDate * _Nullable x) {
+        NSLog(@"主线程中每 2 秒执行一次%@",x);
+    }];
+    //创建一个新线程
+    [[RACSignal interval:1 onScheduler:[RACScheduler schedulerWithPriority:(RACSchedulerPriorityHigh) name:@"newQueue"]] subscribeNext:^(NSDate * _Nullable x) {
+        NSLog(@" //创建一个新线程  %@",x);
+    }];
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }

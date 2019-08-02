@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.myBtn.frame = CGRectMake(20, 120, 30, 20);
+    self.title = @"RAC - 进阶";
 }
 
 - (UIButton *) myBtn
