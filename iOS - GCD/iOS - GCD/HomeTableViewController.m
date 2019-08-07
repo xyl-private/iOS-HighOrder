@@ -443,6 +443,27 @@
  gcd 信号量
  */
 - (void)funcMethod7{
+    NSString * str = [self func12];
+    NSLog(@"funcMethod7 %@",str);
+    
+}
+
+- (NSString *) func12{
+    dispatch_semaphore_t sema = dispatch_semaphore_create(1);
+    __block NSString * string = @"1";
+    [UIView animateWithDuration:1 animations:^{
+        NSLog(@"string1 %@",string);
+        sleep(5);
+        string = @"2";
+        NSLog(@"string2 %@",string);
+        dispatch_semaphore_signal(sema);
+    }];
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    NSLog(@"型号凉 = %@",string);
+    return string;
+}
+
+- (void)funcMethod8{
     self.group = dispatch_group_create();
     self.queue = dispatch_queue_create("QueueGroup", 0);
     
