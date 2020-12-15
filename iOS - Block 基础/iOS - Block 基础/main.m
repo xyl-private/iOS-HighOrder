@@ -39,8 +39,8 @@ int func1(int(^myBlock)(int),int c ,int b) {
 void func3 (){
     int outA = 8;
     int (^myPtr)(int) = ^(int a){
-        
-        return outA + a;}; //block里面可以读取同一类型的outA的值
+        return outA + a;
+    }; //block里面可以读取同一类型的outA的值
     
     outA = 5;  //在调用myPtr之前改变outA的值
     int result = myPtr(3);  // result的值仍然是11，并不是8
@@ -51,7 +51,10 @@ void func3 (){
     //它的值是可以在block里被改变的。如下例子：
     NSMutableArray *mutableArray = [NSMutableArray arrayWithObjects:@"one", @"two", @"three", nil];
     
-    int result1 = ^(int a){[mutableArray removeLastObject]; return a*a;}(5);
+    int result1 = ^(int a){
+        [mutableArray removeLastObject];
+        return a*a;
+    }(5);
     NSLog(@"test array :%@", mutableArray);
 }
 void func4(){
@@ -60,7 +63,8 @@ void func4(){
     __block int outA = 9;
     int (^myPtr)(int) = ^(int a){
         outA = 10*2;
-        return outA + a;};
+        return outA + a;
+    };
     //        outA = 5;
     int result = myPtr(3);  //result的值是8，因为outA是static类型的变量
     NSLog(@"result=%d", result);
